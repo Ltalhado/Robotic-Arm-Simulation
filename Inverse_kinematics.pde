@@ -1,4 +1,4 @@
-float time , millisec , speed = 4;
+ float time , millisec , speed = 5;
 float H = 50;
 float K = 70;
 
@@ -13,7 +13,7 @@ void inverse_k(){
  
   alpha =  PI/2-(atan2(A, Z)+acos((K*K-H*H-dir*dir)/(-2*H*dir)));
   beta = -PI+acos((dir*dir-K*K-H*H)/(-2*H*K)); //(-2*H*T)
-  gamma = atan2(Y, X);
+  gamma = atan2 (Y, -X);
  
  //<>//
 
@@ -22,8 +22,8 @@ void inverse_k(){
 // Every five seconds the arm should change orientation 
 void settime(){
 // use if statement to set time function
-time += ((float) millis()/1000 -  millisec)*(speed/4);
-if (time>=4) time= 0;
+time += ((float) millis()/1000 -  millisec)*(speed/5);
+if (time>=5) time= 0;
  millisec = (float)millis()/1000;
 }
 void pos_IK(){

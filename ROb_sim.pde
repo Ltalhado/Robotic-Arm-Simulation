@@ -12,7 +12,7 @@ void setup()
  arm_2 = loadShape("arm_2_1_flip.obj");
  winch = loadShape ("winch.obj");
 
- //base.disableStyle();
+ base.disableStyle();
  arm_1.disableStyle();
  arm_2.disableStyle();
  winch.disableStyle();
@@ -22,6 +22,7 @@ void draw()
 {
   
   pos_IK();// calling the IK
+  pos_FK();
   background(32);// was 32 for background //#FFFFFF
   lights();
   smooth();
