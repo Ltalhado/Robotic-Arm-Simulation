@@ -1,20 +1,18 @@
-// Robotic Arm Simulation 
+ // Robotic Arm Simulation 
 PShape base , arm_1, arm_2, winch;
-float rotX, rotY, rotZ;
-float pos_X = 1, pos_y = 1/*50*/, pos_z = 1/*50*/;
-float alpha, beta, gamma;
-
-
+float rotX, rotY;
+float pos_X = 1, pos_Y = 50, pos_Z = 50;
+float alpha , gamma , beta;
 
 void setup()
 {
- size(1200,800,P3D);//OPENGL
+ size(1200,800,P3D);//OPENGL ||P3D
  base = loadShape("base.obj");
  arm_1 = loadShape("arm_1.obj");
  arm_2 = loadShape("arm_2_1_flip.obj");
  winch = loadShape ("winch.obj");
 
- base.disableStyle();
+ //base.disableStyle();
  arm_1.disableStyle();
  arm_2.disableStyle();
  winch.disableStyle();
@@ -22,18 +20,19 @@ void setup()
 
 void draw()
 {
- 
-  background(#FFFFFF);// was 32 for background
+  
+  pos_IK();// calling the IK
+  background(32);// was 32 for background //#FFFFFF
   lights();
   smooth();
   
-  fill(#FF00FF);//colour of shape 
+  fill(#AAAAAA);//colour of shape 
   noStroke();// NO, colouring the of outlines 
   
   translate(width/2, height/2);
   rotateX(rotX);
   rotateY(-rotY);
-  scale(-1);
+  scale(-0.75); //0.75
 
  
 // Base position is done 
@@ -41,7 +40,7 @@ void draw()
  shape(base);
 
 
-  
+
 //Arm_1 position is done
 translate(100,-2,-74);
 rotateY(gamma);
@@ -50,18 +49,15 @@ rotateY(gamma);
  
 // Arm_2 Is done
  translate(0,326,0);
- rotateX(PI);//beta 
- rotateY(beta);//PI//-300
+ rotateX(PI);
  shape(arm_2);
 
 
-// winch 
-//translate(0,325,0);//(0,0,50)
-//rotateX(PI);
-//rotateY(gamma);
-//shape(winch);
- 
-}
+// winch  is done
+translate(-25,30,25);         
+rotateX(PI/-2);
+shape(winch);
+ }
   
 
 void mouseDragged()
