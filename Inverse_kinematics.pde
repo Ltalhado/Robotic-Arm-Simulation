@@ -18,9 +18,7 @@ void inverse_k(){
  //<>//
 
 }
-void x_axis(){
 
-}
 // Every five seconds the arm should change orientation 
 void settime(){
 // use if statement to set time function
@@ -34,5 +32,5 @@ inverse_k();
   pos_X = sin(time*PI/-2)*30;// negative angle coordinates 
   //pos_X = sin(time*PI/-2)*20; // postive angle coordinates 
   pos_Z = sin(time*PI/2)*20;
-  x_axis();
+
 }
